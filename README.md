@@ -3,6 +3,7 @@
 # BlaBlaCar-Proyect
 
 ## Objetivo del proyecto:
+
 El proyecto consta de dos partes.
 
 Por un lado, tenemos un dashboard en PowerBI con información sobre numeros de viajes, un mapa interactivo, costes medios por marca de vehiculo...
@@ -16,14 +17,16 @@ Estas funcionalidades son:
 
 
 
-#### Fuentes empleadas:
+### Fuentes empleadas:
+
     Todo el proyecto esta programado en Python, y se utilizan librerias como:
 	pymongo, requests, smtplib, pywhatkit, selenium, pyautogui, keyboard, webbrowser...
 	
 	La BBDD de los viajes obtenidos de la api de BlaBlaCar estan alojados en un servidor local de MongoDB
 	
 	
-#### Creditos:
+### Creditos:
+
 	Proyecto desarrollado por Pablo Gordo
 	Puedes contactar conmigo a traves de mi linkedin: 
 	www.linkedin.com/in/pablogrmadrid
