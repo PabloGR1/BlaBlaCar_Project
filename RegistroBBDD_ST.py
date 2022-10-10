@@ -1,46 +1,25 @@
 import streamlit as st
-from pymongo import MongoClient
-from datetime import datetime
+import pymongo
 
+# Initialize connection.
+# Uses st.experimental_singleton to only run once.
+@st.experimental_singleton
+def init_connection():
+    return pymongo.MongoClient(**st.secrets["mongo"])
 
-st.set_page_config(
-    page_title="Final project Ironhack",
-    page_icon="🚀",
-    layout="wide")
+client = init_connection()
 
-st.title('Solicitud de viaje')
+# Pull data from the collection.
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
+def get_data():
+    db = client.mydb
+    items = db.mycollection.find()
+    items = list(items)  # make hashable for st.experimental_memo
+    return items
 
-cursor=MongoClient('mongodb://localhost:27017')
-db=cursor.BlaBlaCar # bbdd
-colec_solicitud=db.Solicitudes # tabla solicitudes
-colec_api=db.viajes_api_v3
+items = get_data()
 
-nombre = st.text_input('Inserte su nombre: ')
-
-if nombre:
-    telefono = st.text_input('Inserte su telefono: ', type= "password")
-    
-    if telefono:
-        Origen = st.text_input('Inserte el origen de su viaje: ')
-    
-    
-       
-else:
-    pass
-
-
-origen = origen.capitalize()
-destino = destino.capitalize()
-precio = str(precio)
-email = email.lower()
-nombre = nombre.title()
-telefono = str('+34') + str(telefono)
-
-id = datetime.today().strftime('%Y%m%d%H%M%S')
-
-columns = ['ID', 'NOMBRE', 'TELEFONO', 'ORIGEN']
-datos = [id, nombre, telefono, origen]
-data = dict(zip(columns, datos))
-colec_solicitud.insert_one(data);
-
-
+# Print results.
+for item in items:
+    st.write(f"{item['name']} has a :{item['pet']}:")
