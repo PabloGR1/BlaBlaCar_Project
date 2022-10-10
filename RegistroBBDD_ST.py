@@ -7,3 +7,6 @@ st.set_page_config(
 
 st.sidebar.header('Pablo Gordo')
 st.sidebar.write('BlaBlaCar Project')
+
+
+st.title('Solicitud de viaje')
