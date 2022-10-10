@@ -1,5 +1,5 @@
 import streamlit as st
-from pymongo import MongoClient
+import pymongo
 from datetime import datetime
 
 cursor=MongoClient('mongodb://localhost:27017')
