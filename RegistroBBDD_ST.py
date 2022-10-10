@@ -9,7 +9,11 @@ st.title('Solicitud de viaje')
 
 nombre = st.text_input('Inserte su nombre: ')
 
-telefono = st.text_input('Inserte su telefono: ', type= "password")
+    if nombre:
+        telefono = st.text_input('Inserte su telefono: ', type= "password")
+       
+    else:
+        continue
 
 
 # Store the initial value of widgets in session state
