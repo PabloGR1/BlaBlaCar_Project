@@ -2,11 +2,6 @@ import streamlit as st
 import pymongo
 from datetime import datetime
 
-cursor=MongoClient('mongodb://localhost:27017')
-db=cursor.BlaBlaCar # bbdd
-colec_solicitud=db.Solicitudes # tabla solicitudes
-colec_api=db.viajes_api_v3
-
 
 st.set_page_config(
     page_title="Final project Ironhack",
@@ -14,6 +9,11 @@ st.set_page_config(
     layout="wide")
 
 st.title('Solicitud de viaje')
+
+cursor=MongoClient('mongodb://localhost:27017')
+db=cursor.BlaBlaCar # bbdd
+colec_solicitud=db.Solicitudes # tabla solicitudes
+colec_api=db.viajes_api_v3
 
 nombre = st.text_input('Inserte su nombre: ')
 
