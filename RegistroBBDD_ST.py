@@ -1,4 +1,12 @@
 import streamlit as st
+from pymongo import MongoClient
+from datetime import datetime
+
+cursor=MongoClient('mongodb://localhost:27017')
+db=cursor.BlaBlaCar # bbdd
+colec_solicitud=db.Solicitudes # tabla solicitudes
+colec_api=db.viajes_api_v3
+
 
 st.set_page_config(
     page_title="Final project Ironhack",
@@ -11,38 +19,28 @@ nombre = st.text_input('Inserte su nombre: ')
 
 if nombre:
     telefono = st.text_input('Inserte su telefono: ', type= "password")
+    
+    if telefono:
+        Origen = st.text_input('Inserte el origen de su viaje: ')
+    
+    
        
 else:
     pass
 
 
-# Store the initial value of widgets in session state
-if "visibility" not in st.session_state:
-    st.session_state.visibility = "visible"
-    st.session_state.disabled = False
+origen = origen.capitalize()
+destino = destino.capitalize()
+precio = str(precio)
+email = email.lower()
+nombre = nombre.title()
+telefono = str('+34') + str(telefono)
 
-col1, col2 = st.columns(2)
+id = datetime.today().strftime('%Y%m%d%H%M%S')
 
-with col1:
-    st.checkbox("Disable text input widget", key="disabled")
-    st.radio(
-        "Set text input label visibility 👉",
-        key="visibility",
-        options=["visible", "hidden", "collapsed"],
-    )
-    st.text_input(
-        "Placeholder for the other text input widget",
-        "This is a placeholder",
-        key="placeholder",
-    )
+columns = ['ID', 'NOMBRE', 'TELEFONO', 'ORIGEN']
+datos = [id, nombre, telefono, origen]
+data = dict(zip(columns, datos))
+colec_solicitud.insert_one(data);
 
-with col2:
-    text_input = st.text_input(
-        "Enter some text 👇",
-        label_visibility=st.session_state.visibility,
-        disabled=st.session_state.disabled,
-        placeholder=st.session_state.placeholder,
-    )
 
-    if text_input:
-        st.write("You entered: ", text_input)
