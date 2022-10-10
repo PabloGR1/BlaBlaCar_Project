@@ -1,5 +1,5 @@
 import streamlit as st
-import pymongo
+from pymongo import MongoClient
 from datetime import datetime
 
 
