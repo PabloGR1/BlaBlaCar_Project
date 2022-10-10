@@ -1,4 +1,3 @@
-pip install pymongo
 import streamlit as st
 from pymongo import MongoClient
 from datetime import datetime
