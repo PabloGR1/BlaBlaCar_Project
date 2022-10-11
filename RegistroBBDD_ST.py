@@ -1,6 +1,7 @@
 import streamlit as st
-import pymongo as mongo
-cursor=mongo('mongodb://localhost:27017')
+import pymongo
+from pymongo import MongoClient
+cursor=MongoClient('mongodb://localhost:27017')
 db=cursor.BlaBlaCar # bbdd
 colec_solicitud=db.Solicitudes # tabla solicitudes
 colec_api=db.viajes_api_v3
