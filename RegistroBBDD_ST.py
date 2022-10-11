@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import datetime
-import pymongo
+
 from pymongo import MongoClient
 cursor=MongoClient('mongodb://localhost:27017')
 db=cursor.BlaBlaCar # bbdd
