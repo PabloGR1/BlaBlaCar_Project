@@ -14,11 +14,11 @@ if nombre:
 
 id = datetime.today().strftime('%Y%m%d%H%M%S')
 origen = origen.capitalize()
-destino = destino.capitalize()
-precio = str(precio)
-email = email.lower()
+#destino = destino.capitalize()
+#precio = str(precio)
+#email = email.lower()
 nombre = nombre.title()
-telefono = str('+34') + str(telefono)
+#telefono = str('+34') + str(telefono)
 
 if st.button('Registrar'):
   columns = ['ID', 'NOMBRE', 'ORIGEN']
