@@ -8,16 +8,17 @@ colec_solicitud=db.Solicitudes # tabla solicitudes
 colec_api=db.viajes_api_v3
 
 nombre = st.text_input('Inserte su nombre: ')
+nombre = nombre.title()
 
 if nombre:
   origen = st.text_input('Inserte la provincia de origen: ')
+  origen = origen.capitalize()
 
 id = datetime.today().strftime('%Y%m%d%H%M%S')
-origen = origen.capitalize()
 #destino = destino.capitalize()
 #precio = str(precio)
 #email = email.lower()
-nombre = nombre.title()
+
 #telefono = str('+34') + str(telefono)
 
 if st.button('Registrar'):
