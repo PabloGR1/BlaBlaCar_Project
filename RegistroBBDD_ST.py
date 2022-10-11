@@ -1,5 +1,9 @@
 import streamlit as st
 import pymongo as mongo
+cursor=MongoClient('mongodb://localhost:27017')
+db=cursor.BlaBlaCar # bbdd
+colec_solicitud=db.Solicitudes # tabla solicitudes
+colec_api=db.viajes_api_v3
 
 st.text_input('prueba')
 
