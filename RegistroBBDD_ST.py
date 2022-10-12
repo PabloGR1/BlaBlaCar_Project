@@ -3,10 +3,12 @@ from datetime import datetime
 import pymongo
 
 from pymongo import MongoClient
-cursor=MongoClient('mongodb+srv://cluster0.oxuoatg.mongodb.net')
-db=cursor.BlaBlaCar # bbdd
+client = pymongo.MongoClient("mongodb+srv://<username>:<password>@cluster0.oxuoatg.mongodb.net/?retryWrites=true&w=majority", server_api=ServerApi('1'))
+db = client.test
 colec_solicitud=db.Solicitudes # tabla solicitudes
 colec_api=db.viajes_api_v3
+
+
 
 
 nombre = st.text_input('Inserte su nombre: ')
