@@ -2,6 +2,13 @@ import streamlit as st
 from datetime import datetime
 import pymongo
 
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
+# Declare API version "1" for MongoClient "client"
+server_api = ServerApi('1')
+client = MongoClient(server_api=server_api)
+
 client = pymongo.MongoClient("mongodb+srv://<username>:<password>@cluster0.oxuoatg.mongodb.net/?retryWrites=true&w=majority", server_api=ServerApi('1'))
 db = client.BlaBlaCar
 colec_solicitud=db.Solicitudes # tabla solicitudes
