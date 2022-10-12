@@ -3,7 +3,7 @@ from datetime import datetime
 import pymongo
 
 from pymongo import MongoClient
-cursor=MongoClient('localhost:27107')
+cursor=MongoClient('mongodb+srv:27107')
 db=cursor.BlaBlaCar # bbdd
 colec_solicitud=db.Solicitudes # tabla solicitudes
 colec_api=db.viajes_api_v3
