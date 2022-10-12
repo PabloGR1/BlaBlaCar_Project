@@ -2,7 +2,7 @@ import streamlit as st
 from datetime import datetime
 import pymongo
 
-client = pymongo.MongoClient("mongodb+srv://JF:JF@cluster0.oxuoatg.mongodb.net/BlaBlaCar?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://JF:JF@cluster0.oxuoatg.mongodb.net/?retryWrites=true&w=majority")
 db = client.BlaBlaCar
 colec_solicitud=db.Solicitudes # tabla solicitudes
 colec_api=db.viajes_api_v3
