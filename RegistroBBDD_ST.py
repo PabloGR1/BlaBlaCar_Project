@@ -7,7 +7,7 @@ from pymongo.server_api import ServerApi
 
 # Declare API version "1" for MongoClient "client"
 server_api = ServerApi('1')
-client = pymongo.MongoClient("mongodb+srv://<username>:<password>@cluster0.oxuoatg.mongodb.net/?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://PGR:PGR123@cluster0.oxuoatg.mongodb.net/?retryWrites=true&w=majority")
 
 db = client.BlaBlaCar
 colec_solicitud=db.Solicitudes # tabla solicitudes
