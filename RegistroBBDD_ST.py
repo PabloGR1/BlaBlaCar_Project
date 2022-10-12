@@ -2,7 +2,6 @@ import streamlit as st
 from datetime import datetime
 import pymongo
 
-server_api = ServerApi('1')
 
 client = pymongo.MongoClient("mongodb+srv://PGR:PGR123@cluster0.oxuoatg.mongodb.net/?retryWrites=true&w=majority")
 
